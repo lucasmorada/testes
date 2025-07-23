@@ -1,78 +1,316 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Início do Jogo</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap');
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      height: 100vh;
-      background: linear-gradient(135deg, #fe6402, #009098);
-      font-family: 'Roboto', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .container {
-      background: #fff;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-      text-align: center;
-      max-width: 400px;
-      width: 100%;
-    }
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      color: #e65100;
-      margin-bottom: 20px;
-    }
-    input {
-      padding: 12px;
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-size: 16px;
-    }
-    button {
-      padding: 12px 24px;
-      background: #e65100;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #cc5100;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: 9#fcfcfc;
+        }
+
+        .header {
+            background: linear-gradient(to right, #fe6400, #009199); /* Gradiente de larnanja para azul */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem; /* Usa unidades relativas para escalabilidade */
+        }
+
+        .header p {
+            font-size: 1.25rem; /* Usa unidades relativas para escalabilidade */
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        @keyframes pingar {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .content img {
+            max-width: 100%; /* Ajusta a imagem para responsividade */
+            height: auto;
+            border-radius: 10px; /* Adiciona bordas arredondadas */
+            transition: transform 0.5s ease-in-out; /* Suaviza a transição para o efeito de pingar */
+        }
+
+        .content img:hover {
+            animation: pingar 0.5s ease-in-out; /* Animação de pingo no hover */
+        }
+
+        .content1 {
+            background: linear-gradient(to right, ##fcfcfc, #fcfcfc); /* Gradiente de verde para azul */
+            text-align: center;
+            padding: 40px 20px; /* Ajuste o padding para controlar o espaço interno */
+            font-size: 1.25rem; /* Ajustado para responsividade */
+            color: white;
+            margin: 40px auto; /* Espaçamento externo e centralização */
+            max-width: 800px; /* Define a largura máxima para o fundo */
+            border-radius: 10px; /* Adiciona bordas arredondadas, se desejar */
+        }
+
+        .content1:hover {
+            animation: pingar 0.5s ease-in-out; /* Animação de pingo no hover */
+        }
+
+        .cards {
+            display: flex; /* Usa flexbox para o layout dos cards */
+            flex-wrap: wrap; /* Permite que os cards quebrem linha */
+            gap: 10px; /* Espaço entre os cards */
+            padding: 20px; /* Padding lateral */
+            justify-content: center; /* Centraliza os cards horizontalmente */
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+            transition: transform 0.3s ease; /* Suaviza a transição */
+            display: flex; /* Permite o uso de flexbox dentro do card */
+            flex-direction: column; /* Organiza o conteúdo verticalmente */
+            justify-content: center; /* Alinha o conteúdo verticalmente ao centro */
+            text-align: center; /* Alinha o texto ao centro */
+            height: 200px; /* Define uma altura fixa para todos os cards */
+            flex: 1 1 200px; /* Define a largura mínima dos cards e permite crescimento */
+            max-width: 300px; /* Limita a largura máxima dos cards */
+        }
+
+        .card:hover {
+            animation: pingar 0.5s ease-in-out; /* Animação de pingo no hover */
+        }
+
+        .card h3 {
+            color: #0c2a62; /* Azul escuro */
+            font-size: 1.25rem; /* Ajusta o tamanho da fonte para melhor legibilidade */
+            margin: 0; /* Remove a margem padrão do h3 */
+            line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+        }
+
+        .card p {
+            font-size: 1rem; /* Ajusta o tamanho do texto para parágrafos */
+            margin-top: 10px; /* Adiciona um pouco de espaço acima do texto */
+            line-height: 1.5; /* Melhora a legibilidade com espaçamento entre linhas */
+        }
+
+        .footer {
+            background: linear-gradient(to right, #fe6400, #009199); /* Gradiente de verde para azul */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative; /* Necessário para posicionar os controles do carrossel */
+            overflow: hidden; /* Garante que nada saia do contêiner do carrossel */
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px; /* Adiciona padding lateral para dar espaço aos controles */
+        }
+
+        .carousel .features {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .carousel .feature {
+            flex: 0 0 25%; /* Mostra 4 imagens por vez em telas grandes */
+            box-sizing: border-box;
+            padding: 0 10px; /* Ajusta o espaçamento entre os itens */
+            text-align: center; /* Alinha o texto ao centro */
+        }
+
+        .carousel .feature img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out; /* Suaviza a transição para o efeito de pingo */
+        }
+
+        .carousel .feature img:hover {
+            transform: scale(1.05); /* Aumenta a imagem ao passar o mouse */
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px; /* Espaçamento lateral */
+        }
+
+        .carousel-controls button {
+            background: transparent; /* Remove o fundo */
+            border: none; /* Remove a borda */
+            color: white; /* Define a cor da seta */
+            font-size: 2rem; /* Ajusta o tamanho da seta */
+            cursor: pointer;
+            outline: none; /* Remove a borda de foco padrão */
+            transition: color 0.3s ease; /* Suaviza a transição da cor */
+        }
+
+        .carousel-controls button:hover {
+            color: #88c46c; /* Cor da seta ao passar o mouse */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .carousel .feature {
+                flex: 0 0 50%; /* Mostra 2 imagens por vez em telas menores */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel .feature {
+                flex: 0 0 100%; /* Mostra 1 imagem por vez em telas muito pequenas */
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Jogo de Planejamento</h1>
-    <input type="text" id="nick" placeholder="Digite seu nome" />
-    <button onclick="iniciarJogo()">Começar</button>
-  </div>
 
-  <script>
-    function iniciarJogo() {
-      const nick = document.getElementById('nick').value.trim();
-      if (!nick) {
-        alert('Digite um nome para começar.');
-        return;
-      }
-      sessionStorage.setItem('nick', nick);
-      sessionStorage.setItem('dinheiro', '1000');
-      window.location.href = 'fase1.html';
-    }
-  </script>
+    <div class="header">
+        <h1>ProfissionalizeMais EduCorp</h1>
+        <p>Universidade Empresarial com + de 500 Cursos</p>
+    </div>
+
+    <div class="content">
+        <img src="seu texto aqui" alt="chamativo">
+        
+        <div class="content1">
+            <h1>Título</h1>
+            <p>subtítulo<br></p> 
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>chamativo1</h3>
+            </div>
+            <div class="card">
+                <h3>chamativo2</h3>
+            </div>
+            <div class="card">
+                <h3>chamativo3</h3>
+            </div>
+            <div class="card">
+                <h3>chamativo4</h3>
+            </div>
+            <div class="card">
+                <h3>chamativo5</h3>
+            </div>
+            <div class="card">
+                <h3>chamativo6</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="carousel">
+            <div class="features">
+                <div class="feature">
+                    <img src="banner" alt="Design sem nome - 1">
+                    <h4>Informação1</h4>
+                </div>
+                <div class="feature">
+                    <img src="banner" alt="Design sem nome - 1">
+                    <h4>Informação2</h4>
+                </div>
+                <div class="feature">
+                    <img src="banner" alt="Design sem nome - 1">
+                    <h4>informação3</h4>
+                </div>
+                <div class="feature">
+                    <img src="banner" alt="Design sem nome - 1">
+                    <h4>Informação4</h4>
+                </div>
+                <div class="feature">
+                    <img src="banner" alt="Design sem nome - 1">
+                    <h4>Informação5</h4>
+                </div>
+                <div class="feature">
+                    <img src="banner" alt="Design sem nome - 1">
+                    <h4>Informação6</h4>
+                </div>
+                <div class="feature">
+                    <img src="banner" alt="Design sem nome - 1">
+                    <h4>Informação7</h4>
+                </div>
+                <div class="feature">
+                    <img src="banner" alt="Design sem nome - 1">
+                    <h4>Informação8</h4>
+                </div>
+                <div class="feature">
+                    <img src="banner" alt="Design sem nome - 1">
+                    <h4>Gamefication</h4>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button id="prev">&#10094;</button>
+                <button id="next">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const features = document.querySelector('.features');
+        const totalFeatures = document.querySelectorAll('.feature').length;
+        let currentIndex = 0;
+        let featuresToShow = window.innerWidth < 768 ? 2 : 4; // Ajusta a quantidade de features a serem exibidas
+        let featuresToMove = 1; // Quantidade de features a mover por clique
+
+        function updateCarousel() {
+            const offset = -(currentIndex * (100 / featuresToShow));
+            features.style.transform = `translateX(${offset}%)`;
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + featuresToMove) % Math.ceil(totalFeatures / featuresToShow);
+            updateCarousel();
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - featuresToMove + Math.ceil(totalFeatures / featuresToShow)) % Math.ceil(totalFeatures / featuresToShow);
+            updateCarousel();
+        });
+
+        // Atualiza o carrossel ao redimensionar a janela
+        window.addEventListener('resize', () => {
+            const newFeaturesToShow = window.innerWidth < 480 ? 1 : (window.innerWidth < 768 ? 2 : 4);
+            if (newFeaturesToShow !== featuresToShow) {
+                featuresToShow = newFeaturesToShow;
+                currentIndex = 0;
+                updateCarousel();
+            }
+        });
+
+        updateCarousel(); // Inicializa o carrossel
+    </script>
 </body>
 </html>
