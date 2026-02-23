@@ -3,314 +3,1253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título1</title>
+    <title>Lucas Morada - Full Stack Developer</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* ==================== RESET & BASE ==================== */
+        * {
             margin: 0;
             padding: 0;
-            background-color: 9#fcfcfc;
-        }
-
-        .header {
-            background: linear-gradient(to right, #fe6400, #009199); /* Gradiente de larnanja para azul */
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2.5rem; /* Usa unidades relativas para escalabilidade */
-        }
-
-        .header p {
-            font-size: 1.25rem; /* Usa unidades relativas para escalabilidade */
-        }
-
-        .content {
-            text-align: center;
-            padding: 20px;
-        }
-
-        @keyframes pingar {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .content img {
-            max-width: 100%; /* Ajusta a imagem para responsividade */
-            height: auto;
-            border-radius: 10px; /* Adiciona bordas arredondadas */
-            transition: transform 0.5s ease-in-out; /* Suaviza a transição para o efeito de pingar */
-        }
-
-        .content img:hover {
-            animation: pingar 0.5s ease-in-out; /* Animação de pingo no hover */
-        }
-
-        .content1 {
-            background: linear-gradient(to right, ##fcfcfc, #fcfcfc); /* Gradiente de verde para azul */
-            text-align: center;
-            padding: 40px 20px; /* Ajuste o padding para controlar o espaço interno */
-            font-size: 1.25rem; /* Ajustado para responsividade */
-            color: white;
-            margin: 40px auto; /* Espaçamento externo e centralização */
-            max-width: 800px; /* Define a largura máxima para o fundo */
-            border-radius: 10px; /* Adiciona bordas arredondadas, se desejar */
-        }
-
-        .content1:hover {
-            animation: pingar 0.5s ease-in-out; /* Animação de pingo no hover */
-        }
-
-        .cards {
-            display: flex; /* Usa flexbox para o layout dos cards */
-            flex-wrap: wrap; /* Permite que os cards quebrem linha */
-            gap: 10px; /* Espaço entre os cards */
-            padding: 20px; /* Padding lateral */
-            justify-content: center; /* Centraliza os cards horizontalmente */
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
-            transition: transform 0.3s ease; /* Suaviza a transição */
-            display: flex; /* Permite o uso de flexbox dentro do card */
-            flex-direction: column; /* Organiza o conteúdo verticalmente */
-            justify-content: center; /* Alinha o conteúdo verticalmente ao centro */
-            text-align: center; /* Alinha o texto ao centro */
-            height: 200px; /* Define uma altura fixa para todos os cards */
-            flex: 1 1 200px; /* Define a largura mínima dos cards e permite crescimento */
-            max-width: 300px; /* Limita a largura máxima dos cards */
-        }
-
-        .card:hover {
-            animation: pingar 0.5s ease-in-out; /* Animação de pingo no hover */
-        }
-
-        .card h3 {
-            color: #0c2a62; /* Azul escuro */
-            font-size: 1.25rem; /* Ajusta o tamanho da fonte para melhor legibilidade */
-            margin: 0; /* Remove a margem padrão do h3 */
-            line-height: 1.2; /* Ajusta o espaçamento entre linhas */
-        }
-
-        .card p {
-            font-size: 1rem; /* Ajusta o tamanho do texto para parágrafos */
-            margin-top: 10px; /* Adiciona um pouco de espaço acima do texto */
-            line-height: 1.5; /* Melhora a legibilidade com espaçamento entre linhas */
-        }
-
-        .footer {
-            background: linear-gradient(to right, #fe6400, #009199); /* Gradiente de verde para azul */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            position: relative; /* Necessário para posicionar os controles do carrossel */
-            overflow: hidden; /* Garante que nada saia do contêiner do carrossel */
-        }
-
-        .carousel {
-            position: relative;
-            overflow: hidden;
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 20px; /* Adiciona padding lateral para dar espaço aos controles */
-        }
-
-        .carousel .features {
-            display: flex;
-            transition: transform 0.5s ease;
-            width: 100%;
-        }
-
-        .carousel .feature {
-            flex: 0 0 25%; /* Mostra 4 imagens por vez em telas grandes */
             box-sizing: border-box;
-            padding: 0 10px; /* Ajusta o espaçamento entre os itens */
-            text-align: center; /* Alinha o texto ao centro */
         }
 
-        .carousel .feature img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease-in-out; /* Suaviza a transição para o efeito de pingo */
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --border-color: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --green: #2ea043;
+            --green-light: #3fb950;
+            --red: #f85149;
+            --yellow: #fbbf24;
+            --blue: #58a6ff;
         }
 
-        .carousel .feature img:hover {
-            transform: scale(1.05); /* Aumenta a imagem ao passar o mouse */
+        html {
+            scroll-behavior: smooth;
         }
 
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* ==================== PARTICLES ANIMATION ==================== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: var(--green);
+            border-radius: 50%;
+            animation: float 20s infinite;
+            opacity: 0.6;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================== HEADER ==================== */
+        header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background-color: rgba(22, 27, 34, 0.9);
+        }
+
+        .header-content {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 10px; /* Espaçamento lateral */
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .carousel-controls button {
-            background: transparent; /* Remove o fundo */
-            border: none; /* Remove a borda */
-            color: white; /* Define a cor da seta */
-            font-size: 2rem; /* Ajusta o tamanho da seta */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .logo:hover {
+            color: var(--green);
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--text-primary);
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 280px;
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 12px;
+            gap: 8px;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--green);
+        }
+
+        .search-box input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            outline: none;
+            font-size: 14px;
+            placeholder-color: var(--text-secondary);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 6px;
             cursor: pointer;
-            outline: none; /* Remove a borda de foco padrão */
-            transition: color 0.3s ease; /* Suaviza a transição da cor */
+            font-size: 14px;
+            transition: all 0.2s;
         }
 
-        .carousel-controls button:hover {
-            color: #88c46c; /* Cor da seta ao passar o mouse */
+        .theme-toggle:hover {
+            border-color: var(--green);
+            color: var(--green);
         }
 
-        /* Responsividade */
+        .avatar-header {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green), var(--blue));
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .avatar-header:hover {
+            transform: scale(1.1);
+        }
+
+        /* ==================== PROFILE SECTION ==================== */
+        .profile-section {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            animation: fadeInUp 0.6s ease-out;
+            flex-wrap: wrap;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-avatar {
+            flex-shrink: 0;
+        }
+
+        .profile-avatar img {
+            width: 296px;
+            height: 296px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green), var(--blue));
+            border: 2px solid var(--border-color);
+            display: block;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-name {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .profile-username {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .profile-bio {
+            font-size: 16px;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .profile-details {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .detail-item svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: var(--bg-primary);
+            border-color: var(--text-secondary);
+        }
+
+        .btn-primary {
+            background-color: var(--green);
+            border-color: var(--green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--green-light);
+            border-color: var(--green-light);
+        }
+
+        /* ==================== CONTRIBUTIONS SECTION ==================== */
+        .contributions-section {
+            margin-top: 60px;
+            padding: 24px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .contributions-grid {
+            display: flex;
+            gap: 2px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .contribution-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .contribution-square {
+            width: 14px;
+            height: 14px;
+            border-radius: 2px;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .contribution-square:hover {
+            box-shadow: inset 0 0 0 1px var(--green);
+            transform: scale(1.2);
+        }
+
+        .contribution-square.level-0 {
+            background-color: var(--bg-tertiary);
+        }
+
+        .contribution-square.level-1 {
+            background-color: rgba(46, 160, 67, 0.3);
+        }
+
+        .contribution-square.level-2 {
+            background-color: rgba(46, 160, 67, 0.6);
+        }
+
+        .contribution-square.level-3 {
+            background-color: rgba(46, 160, 67, 0.9);
+        }
+
+        .contribution-square.level-4 {
+            background-color: var(--green);
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            border: 1px solid var(--border-color);
+            margin-bottom: 8px;
+            z-index: 50;
+        }
+
+        .contribution-square:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* ==================== REPOSITORIES SECTION ==================== */
+        .repositories-section {
+            margin-top: 60px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .repo-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .repo-card:hover {
+            border-color: var(--green);
+            background-color: var(--bg-tertiary);
+            transform: translateY(-2px);
+        }
+
+        .repo-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .repo-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-secondary);
+            fill: none;
+            margin-top: 2px;
+        }
+
+        .repo-info {
+            flex: 1;
+        }
+
+        .repo-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--blue);
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+
+        .repo-card:hover .repo-name {
+            color: var(--green);
+            text-decoration: underline;
+        }
+
+        .repo-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .repo-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .repo-language {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .language-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-item svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            fill: none;
+        }
+
+        /* ==================== VS CODE SECTION ==================== */
+        .vscode-section {
+            margin-top: 60px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+            margin-bottom: 60px;
+        }
+
+        .vscode-window {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .vscode-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--bg-tertiary);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            height: 36px;
+        }
+
+        .vscode-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .vscode-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .vscode-button.red {
+            background-color: #ff5f56;
+        }
+
+        .vscode-button.yellow {
+            background-color: #ffbd2e;
+        }
+
+        .vscode-button.green {
+            background-color: #27c93f;
+        }
+
+        .vscode-filename {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+
+        .vscode-content {
+            background-color: var(--bg-primary);
+            padding: 20px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: auto;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .code-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .line-number {
+            color: var(--text-secondary);
+            min-width: 40px;
+            text-align: right;
+            user-select: none;
+        }
+
+        .line-content {
+            flex: 1;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Syntax highlighting */
+        .keyword {
+            color: #ff79c6;
+        }
+
+        .string {
+            color: #f1fa8c;
+        }
+
+        .function {
+            color: #50fa7b;
+        }
+
+        .comment {
+            color: #6272a4;
+        }
+
+        .property {
+            color: #8be9fd;
+        }
+
+        .number {
+            color: #bd93f9;
+        }
+
+        .operator {
+            color: #ff79c6;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: var(--green);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49%, 100% {
+                opacity: 1;
+            }
+            50%, 99% {
+                opacity: 0;
+            }
+        }
+
+        /* ==================== RESPONSIVE ==================== */
         @media (max-width: 768px) {
-            .carousel .feature {
-                flex: 0 0 50%; /* Mostra 2 imagens por vez em telas menores */
+            .profile-section {
+                gap: 30px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-avatar img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .profile-info {
+                width: 100%;
+            }
+
+            .profile-details {
+                justify-content: center;
+            }
+
+            .profile-stats {
+                justify-content: center;
+            }
+
+            .profile-actions {
+                justify-content: center;
+            }
+
+            .repos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                gap: 12px;
+            }
+
+            .search-box {
+                max-width: none;
+                order: 3;
+                width: 100%;
+            }
+
+            .vscode-content {
+                font-size: 12px;
+                padding: 16px;
+            }
+
+            .line-number {
+                min-width: 30px;
+                gap: 12px;
             }
         }
 
         @media (max-width: 480px) {
-            .carousel .feature {
-                flex: 0 0 100%; /* Mostra 1 imagem por vez em telas muito pequenas */
+            .profile-name {
+                font-size: 24px;
             }
+
+            .profile-username {
+                font-size: 16px;
+            }
+
+            .repos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-details {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .profile-stats {
+                gap: 20px;
+            }
+        }
+
+        /* ==================== SCROLL ANIMATIONS ==================== */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== LIGHT MODE ==================== */
+        body.light-mode {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f8fa;
+            --bg-tertiary: #eaeef2;
+            --border-color: #d0d7de;
+            --text-primary: #24292f;
+            --text-secondary: #57606a;
+            --green: #1a7f37;
+            --green-light: #2da44e;
+        }
+
+        body.light-mode .vscode-content {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        body.light-mode header {
+            background-color: rgba(246, 248, 250, 0.9);
+        }
+
+        /* ==================== COUNTER ANIMATION ==================== */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-number.animated {
+            animation: countUp 0.6s ease-out;
         }
     </style>
-</head>
-<body>
-
-    <div class="header">
-        <h1>ProfissionalizeMais EduCorp</h1>
-        <p>Universidade Empresarial com + de 500 Cursos</p>
-    </div>
-
-    <div class="content">
-        <img src="seu texto aqui" alt="chamativo">
-        
-        <div class="content1">
-            <h1>Título</h1>
-            <p>subtítulo<br></p> 
-        </div>
-
-        <div class="cards">
-            <div class="card">
-                <h3>chamativo1</h3>
-            </div>
-            <div class="card">
-                <h3>chamativo2</h3>
-            </div>
-            <div class="card">
-                <h3>chamativo3</h3>
-            </div>
-            <div class="card">
-                <h3>chamativo4</h3>
-            </div>
-            <div class="card">
-                <h3>chamativo5</h3>
-            </div>
-            <div class="card">
-                <h3>chamativo6</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="carousel">
-            <div class="features">
-                <div class="feature">
-                    <img src="banner" alt="Design sem nome - 1">
-                    <h4>Informação1</h4>
-                </div>
-                <div class="feature">
-                    <img src="banner" alt="Design sem nome - 1">
-                    <h4>Informação2</h4>
-                </div>
-                <div class="feature">
-                    <img src="banner" alt="Design sem nome - 1">
-                    <h4>informação3</h4>
-                </div>
-                <div class="feature">
-                    <img src="banner" alt="Design sem nome - 1">
-                    <h4>Informação4</h4>
-                </div>
-                <div class="feature">
-                    <img src="banner" alt="Design sem nome - 1">
-                    <h4>Informação5</h4>
-                </div>
-                <div class="feature">
-                    <img src="banner" alt="Design sem nome - 1">
-                    <h4>Informação6</h4>
-                </div>
-                <div class="feature">
-                    <img src="banner" alt="Design sem nome - 1">
-                    <h4>Informação7</h4>
-                </div>
-                <div class="feature">
-                    <img src="banner" alt="Design sem nome - 1">
-                    <h4>Informação8</h4>
-                </div>
-                <div class="feature">
-                    <img src="banner" alt="Design sem nome - 1">
-                    <h4>Gamefication</h4>
-                </div>
-            </div>
-            <div class="carousel-controls">
-                <button id="prev">&#10094;</button>
-                <button id="next">&#10095;</button>
-            </div>
-        </div>
-    </div>
 
     <script>
-        const features = document.querySelector('.features');
-        const totalFeatures = document.querySelectorAll('.feature').length;
-        let currentIndex = 0;
-        let featuresToShow = window.innerWidth < 768 ? 2 : 4; // Ajusta a quantidade de features a serem exibidas
-        let featuresToMove = 1; // Quantidade de features a mover por clique
+        // Será incluído após o HTML
+    </script>
+</head>
+<body>
+    <!-- PARTICLES BACKGROUND -->
+    <div class="particles-container" id="particlesContainer"></div>
 
-        function updateCarousel() {
-            const offset = -(currentIndex * (100 / featuresToShow));
-            features.style.transform = `translateX(${offset}%)`;
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                </a>
+
+                <!-- Search Box -->
+                <div class="search-box">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor">
+                        <circle cx="6.5" cy="6.5" r="5.5"/>
+                        <path d="M11 11l4 4" stroke-width="2"/>
+                    </svg>
+                    <input type="text" placeholder="Search or jump to..." disabled>
+                </div>
+
+                <!-- Right Section -->
+                <div class="header-right">
+                    <button class="theme-toggle" id="themeToggle">🌙</button>
+                    <div class="avatar-header"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- PROFILE SECTION -->
+        <section class="profile-section">
+            <div class="profile-avatar">
+                <div class="avatar-header" style="width: 296px; height: 296px;"></div>
+            </div>
+
+            <div class="profile-info">
+                <h1 class="profile-name">Lucas Morada</h1>
+                <p class="profile-username">@lucasmorada</p>
+                <p class="profile-bio">💻 Full Stack Developer | 🚀 Passionate about building scalable web applications | ⚡ JavaScript Enthusiast</p>
+
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <svg viewBox="0 0 16 16">
+                            <path d="M8 2a6 6 0 100 12A6 6 0 008 2z"/>
+                        </svg>
+                        São Paulo, Brazil
+                    </div>
+                    <div class="detail-item">
+                        <svg viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 018 8 8 8 0 01-8 8A8 8 0 010 8a8 8 0 018-8z"/>
+                        </svg>
+                        <a href="#" style="color: var(--blue); text-decoration: none;">www.lucasmorada.dev</a>
+                    </div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat">
+                        <div class="stat-number animated" data-target="42">0</div>
+                        <div class="stat-label">followers</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number animated" data-target="128">0</div>
+                        <div class="stat-label">following</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number animated" data-target="18">0</div>
+                        <div class="stat-label">repositories</div>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <button class="btn btn-primary">
+                        ⭐ Follow
+                    </button>
+                    <button class="btn">👁 Watch</button>
+                    <button class="btn">⭐ Sponsor</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTRIBUTIONS SECTION -->
+        <section class="contributions-section scroll-fade">
+            <h2 class="section-title">Contributions</h2>
+            <div class="contributions-grid" id="contributionsGrid"></div>
+        </section>
+
+        <!-- REPOSITORIES SECTION -->
+        <section class="repositories-section scroll-fade">
+            <h2 class="section-title">Repositories</h2>
+            <div class="repos-grid" id="reposGrid"></div>
+        </section>
+
+        <!-- VS CODE SECTION -->
+        <section class="vscode-section scroll-fade">
+            <h2 class="section-title">Latest Work</h2>
+            <div class="vscode-window">
+                <div class="vscode-header">
+                    <div class="vscode-buttons">
+                        <div class="vscode-button red"></div>
+                        <div class="vscode-button yellow"></div>
+                        <div class="vscode-button green"></div>
+                    </div>
+                    <div class="vscode-filename">portfolio.js</div>
+                    <div></div>
+                </div>
+                <div class="vscode-content" id="codeContent"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ==================== PARTICLES ==================== //
+        function initParticles() {
+            const container = document.getElementById('particlesContainer');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.width = (Math.random() * 3 + 1) + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(particle);
+            }
         }
 
-        document.getElementById('next').addEventListener('click', () => {
-            currentIndex = (currentIndex + featuresToMove) % Math.ceil(totalFeatures / featuresToShow);
-            updateCarousel();
+        // ==================== THEME TOGGLE ==================== //
+        const themeToggle = document.getElementById('themeToggle');
+        const isDarkMode = localStorage.getItem('theme') === 'light' ? false : true;
+
+        if (!isDarkMode) {
+            document.body.classList.add('light-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            themeToggle.textContent = isLight ? '☀️' : '🌙';
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
 
-        document.getElementById('prev').addEventListener('click', () => {
-            currentIndex = (currentIndex - featuresToMove + Math.ceil(totalFeatures / featuresToShow)) % Math.ceil(totalFeatures / featuresToShow);
-            updateCarousel();
-        });
+        // ==================== CONTRIBUTIONS GRID ==================== //
+        function generateContributions() {
+            const grid = document.getElementById('contributionsGrid');
+            const weeks = 52;
+            const daysPerWeek = 7;
 
-        // Atualiza o carrossel ao redimensionar a janela
-        window.addEventListener('resize', () => {
-            const newFeaturesToShow = window.innerWidth < 480 ? 1 : (window.innerWidth < 768 ? 2 : 4);
-            if (newFeaturesToShow !== featuresToShow) {
-                featuresToShow = newFeaturesToShow;
-                currentIndex = 0;
-                updateCarousel();
+            for (let week = 0; week < weeks; week++) {
+                const column = document.createElement('div');
+                column.className = 'contribution-column';
+
+                for (let day = 0; day < daysPerWeek; day++) {
+                    const square = document.createElement('div');
+                    const level = Math.floor(Math.random() * 5);
+                    square.className = `contribution-square level-${level}`;
+
+                    const date = new Date();
+                    date.setDate(date.getDate() - (weeks - week) * 7 + day);
+                    const dateStr = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'tooltip';
+                    tooltip.textContent = `${level * 15} contributions on ${dateStr}`;
+
+                    square.appendChild(tooltip);
+                    column.appendChild(square);
+                }
+
+                grid.appendChild(column);
             }
+        }
+
+        // ==================== REPOSITORIES ==================== //
+        const repositories = [
+            {
+                name: 'React Dashboard',
+                description: 'A modern admin dashboard built with React and TypeScript. Features real-time data visualization, responsive design, and dark mode.',
+                language: 'TypeScript',
+                color: '#2b7489',
+                stars: 324,
+                forks: 87,
+                updated: 2
+            },
+            {
+                name: 'Node API Server',
+                description: 'Scalable REST API built with Node.js and Express. Includes authentication, database integration, and comprehensive documentation.',
+                language: 'JavaScript',
+                color: '#f1e05a',
+                stars: 512,
+                forks: 156,
+                updated: 5
+            },
+            {
+                name: 'CSS Framework',
+                description: 'Lightweight and customizable CSS framework inspired by modern design systems. Perfect for rapid prototyping and production apps.',
+                language: 'CSS',
+                color: '#563d7c',
+                stars: 289,
+                forks: 64,
+                updated: 12
+            },
+            {
+                name: 'Web Scraper Tool',
+                description: 'Advanced web scraping library with caching, rate limiting, and data transformation capabilities. Built for reliability and performance.',
+                language: 'Python',
+                color: '#3572A5',
+                stars: 178,
+                forks: 45,
+                updated: 8
+            },
+            {
+                name: 'Mobile App CLI',
+                description: 'Command-line tool for creating and managing mobile applications. Includes generators, build optimization, and deployment automation.',
+                language: 'JavaScript',
+                color: '#f1e05a',
+                stars: 421,
+                forks: 102,
+                updated: 3
+            },
+            {
+                name: 'Electron Desktop App',
+                description: 'Cross-platform desktop application for productivity. Features offline support, cloud sync, and intuitive user interface.',
+                language: 'JavaScript',
+                color: '#f1e05a',
+                stars: 267,
+                forks: 71,
+                updated: 15
+            }
+        ];
+
+        function renderRepositories() {
+            const grid = document.getElementById('reposGrid');
+
+            repositories.forEach((repo, index) => {
+                const card = document.createElement('a');
+                card.href = '#';
+                card.className = 'repo-card scroll-fade';
+                card.style.animationDelay = (index * 0.1) + 's';
+
+                card.innerHTML = `
+                    <div class="repo-header">
+                        <svg class="repo-icon" viewBox="0 0 16 16">
+                            <path d="M2 2.5A2.5 2.5 0 015 5h6a2.5 2.5 0 110 5H5a2.5 2.5 0 110-5h6.5m-11 1h.5a3.5 3.5 0 010 7h-.5a3.5 3.5 0 010-7zm6 0h.5a3.5 3.5 0 010 7h-.5a3.5 3.5 0 010-7z"/>
+                        </svg>
+                        <div class="repo-info">
+                            <div class="repo-name">${repo.name}</div>
+                        </div>
+                    </div>
+                    <p class="repo-description">${repo.description}</p>
+                    <div class="repo-footer">
+                        <div class="repo-language">
+                            <span class="language-dot" style="background-color: ${repo.color}"></span>
+                            <span>${repo.language}</span>
+                        </div>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <svg viewBox="0 0 16 16">
+                                    <path d="M8 .5a.5.5 0 01.5.5v.5H10V1a.5.5 0 011 0v.5h1.5V1a.5.5 0 011 0v.5h1V2a.5.5 0 01-1 0v-.5H13v3h1.5v-.5a.5.5 0 011 0v.5h1V5a.5.5 0 01-1 0v-.5H14v1.5h1.5v-.5a.5.5 0 011 0v.5h1V7a.5.5 0 01-1 0v-.5H15v1.5h1.5v-.5a.5.5 0 011 0v.5h1V9a.5.5 0 01-1 0v-.5H16V16H0V.5a.5.5 0 01.5-.5z" fill="none"/>
+                                </svg>
+                                ${repo.stars}
+                            </div>
+                            <div class="stat-item">
+                                <svg viewBox="0 0 16 16">
+                                    <path d="M5 3.5a.5.5 0 110-1 .5.5 0 010 1zm0 2a.5.5 0 110-1 .5.5 0 010 1zm0 2a.5.5 0 110-1 .5.5 0 010 1zm11-5h-1v-1h1v1z" fill="currentColor"/>
+                                </svg>
+                                ${repo.forks}
+                            </div>
+                        </div>
+                        <span style="font-size: 12px;">Updated ${repo.updated}d ago</span>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // ==================== VS CODE ANIMATION ==================== //
+        const codeContent = document.getElementById('codeContent');
+        const fullCode = `const developer = {
+  name: "Lucas Morada",
+  stack: ["JavaScript", "React", "Node.js", "TypeScript"],
+  focus: "Full Stack Development",
+  passion: "Building scalable web applications"
+};
+
+function hireMe() {
+  return "Let's build something amazing together 🚀";
+}
+
+// Always learning, always coding
+console.log(hireMe());`;
+
+        function typeCode() {
+            codeContent.innerHTML = '';
+            const lines = fullCode.split('\n');
+            let lineIndex = 0;
+
+            function typeLine() {
+                if (lineIndex >= lines.length) {
+                    setTimeout(typeCode, 3000);
+                    return;
+                }
+
+                const lineNum = lineIndex + 1;
+                const lineContent = lines[lineIndex];
+                const codeLine = document.createElement('div');
+                codeLine.className = 'code-line';
+
+                const lineNumber = document.createElement('span');
+                lineNumber.className = 'line-number';
+                lineNumber.textContent = lineNum;
+
+                const contentSpan = document.createElement('div');
+                contentSpan.className = 'line-content';
+
+                // Simple syntax highlighting
+                let html = '';
+                let i = 0;
+                while (i < lineContent.length) {
+                    // Comments
+                    if (lineContent[i] === '/' && lineContent[i + 1] === '/') {
+                        const comment = lineContent.substring(i);
+                        html += `<span class="comment">${escapeHtml(comment)}</span>`;
+                        break;
+                    }
+
+                    // Strings
+                    if (lineContent[i] === '"' || lineContent[i] === '\'') {
+                        const quote = lineContent[i];
+                        let str = quote;
+                        i++;
+                        while (i < lineContent.length && lineContent[i] !== quote) {
+                            str += lineContent[i];
+                            i++;
+                        }
+                        if (i < lineContent.length) str += lineContent[i];
+                        html += `<span class="string">${escapeHtml(str)}</span>`;
+                        i++;
+                        continue;
+                    }
+
+                    // Keywords
+                    const keywords = ['const', 'function', 'return', 'if', 'else', 'for', 'while', 'new', 'this'];
+                    let isKeyword = false;
+                    for (const keyword of keywords) {
+                        if (lineContent.substring(i).startsWith(keyword)) {
+                            const nextChar = lineContent[i + keyword.length];
+                            if (!nextChar || !/[a-zA-Z0-9_]/.test(nextChar)) {
+                                html += `<span class="keyword">${escapeHtml(keyword)}</span>`;
+                                i += keyword.length;
+                                isKeyword = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (isKeyword) continue;
+
+                    // Regular characters
+                    html += escapeHtml(lineContent[i]);
+                    i++;
+                }
+
+                contentSpan.innerHTML = html;
+                codeLine.appendChild(lineNumber);
+                codeLine.appendChild(contentSpan);
+                codeContent.appendChild(codeLine);
+
+                lineIndex++;
+                setTimeout(typeLine, 100);
+            }
+
+            typeLine();
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ==================== COUNTER ANIMATION ==================== //
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number.animated');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                let current = 0;
+                const increment = Math.ceil(target / 30);
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = current;
+                    }
+                }, 50);
+            });
+        }
+
+        // ==================== SCROLL ANIMATIONS ==================== //
+        function observeScrollElements() {
+            const options = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, options);
+
+            document.querySelectorAll('.scroll-fade').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // ==================== INITIALIZATION ==================== //
+        document.addEventListener('DOMContentLoaded', () => {
+            initParticles();
+            generateContributions();
+            renderRepositories();
+            typeCode();
+            observeScrollElements();
+
+            // Animate counters when visible
+            const profileSection = document.querySelector('.profile-section');
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    animateCounters();
+                    observer.disconnect();
+                }
+            }, { threshold: 0.5 });
+            observer.observe(profileSection);
         });
 
-        updateCarousel(); // Inicializa o carrossel
+        // ==================== SMOOTH SCROLL ==================== //
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
